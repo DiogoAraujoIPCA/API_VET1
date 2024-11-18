@@ -1,32 +1,33 @@
 public partial class Consulta
 {
 
-   protected int id_Marcacao;
+   public int id_Marcacao{get;set;}
 
-   protected string DescricaoConsulta;
+   public string DescricaoConsulta{get;set;}
 
-   protected DateTime DataInicial;
+   public DateTime DataInicial{get;set;}
 
-   protected DateTime DataFinal;
+   public DateTime DataFinal{get;set;}
 
-   protected Pessoa PessoaResponsavel;
+   public Pessoa PessoaResponsavel{get;set;}
 
-   protected Animal AnimalConsulta;
+   public Animal AnimalConsulta{get;set;}
 
-   protected Veterinario VeterinarioResponsavel;
+   public Veterinario VeterinarioResponsavel{get;set;}
 
-   protected List<int> ListaMarcacoes;
+   public List<int> ListaMarcacoes{get;set;}
 
-   protected List<Diagnostico> ListaCondicoes;
+   public List<Diagnostico> ListaCondicoes{get;set;}
 
-   protected string condicaoanimal;
+   public string condicaoanimal{get;set;}
 
-   protected bool Estado;
+   public bool Estado{get;set;}
 
   
 
-   public Consulta(string _DescricaoConsulta,DateTime _DataInicial, DateTime _DataFinal, Pessoa _PessoaResponsavel, Animal _animal , Veterinario _VeterinarioResponsavel )
+   public Consulta(int _id_Marcacao,string _DescricaoConsulta,DateTime _DataInicial, DateTime _DataFinal, Pessoa _PessoaResponsavel, Animal _animal , Veterinario _VeterinarioResponsavel )
    {
+      _id_Marcacao=id_Marcacao;
       DescricaoConsulta=_DescricaoConsulta;
       DataInicial = _DataInicial;
       DataFinal = _DataFinal;

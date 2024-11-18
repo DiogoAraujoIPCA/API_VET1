@@ -1,0 +1,30 @@
+﻿@model List<Animal>
+
+@{
+    ViewData["Title"] = "Listas de Animais"; 
+}
+<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+
+<!-- Tabela estilizada usando Bootstrap -->
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Numero Chip</th>
+            <th>Nome</th>
+            <th>Raça</th>
+            <th>Responsavel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Animal animal in Model){
+
+            <tr>
+                 <td>@animal.NumeroChip</td> 
+                <td>@animal.NomeAnimal</td> 
+                <td>@animal.NomeRaca.Nome</td>  <!-- Exibindo a morada da pessoa -->
+                <td>@animal.Responsavel.Nome</td>  <!-- Exibindo o número de telemóvel -->
+            </tr>
+            
+        }
+    </tbody>
+</table>

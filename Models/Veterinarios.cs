@@ -2,9 +2,9 @@
  
  public partial class Veterinario
 {
- protected int ID_Veterinario;
+    public  int ID_Veterinario{get;set;}
 
-    protected Pessoa _Pessoa;
+    public Pessoa _Pessoa{get;set;}
 
     public Veterinario(int id, Pessoa PessoaParam)
     {

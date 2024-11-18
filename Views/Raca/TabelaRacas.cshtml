@@ -1,0 +1,28 @@
+﻿@model List<Raca>
+
+@{
+    ViewData["Title"] = "Listas de racas"; 
+}
+<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+
+<!-- Tabela estilizada usando Bootstrap -->
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Informacoes</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Raca pessoa in Model){
+
+            <tr>
+                <td>@pessoa.Nome</td> 
+                <td>@pessoa.Informacoes</td>  <!-- Exibindo a morada da pessoa -->
+            
+            </tr>
+            
+        }
+    </tbody>
+</table>

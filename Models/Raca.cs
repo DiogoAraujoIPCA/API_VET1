@@ -1,15 +1,12 @@
 public partial class Raca
 {
-    private string Nome;
-    private string Informacoes;
-    private List<Diagnostico> _Diagnostico;
+    public  string Nome {get;set;}
+    public string Informacoes{get;set;}
+    public List<Diagnostico> _Diagnostico{get;set;}
 
     public Raca(string _Nome, string _Informacoes = null)
     {
-
         Nome = _Nome;
         Informacoes = _Informacoes;
-       
-
     }
 }

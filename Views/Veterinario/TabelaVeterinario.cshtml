@@ -1,0 +1,28 @@
+﻿@model List<Veterinario>
+
+@{
+    ViewData["Title"] = "Listas de Veterinarios"; 
+}
+<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+
+<!-- Tabela estilizada usando Bootstrap -->
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID Veterinario</th>
+            <th>Nome</th>
+            <th>Numero de Telemóvel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Veterinario pessoa in Model){
+
+            <tr>
+                <td>@pessoa.ID_Veterinario</td> 
+                <td>@pessoa._Pessoa.Nome</td>  <!-- Exibindo a morada da pessoa -->
+                <td>@pessoa._Pessoa.NumeroTelemovel</td>  <!-- Exibindo o número de telemóvel -->
+            </tr>
+            
+        }
+    </tbody>
+</table>

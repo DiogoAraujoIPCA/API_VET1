@@ -1,0 +1,28 @@
+﻿@model List<Pessoa>
+
+@{
+    ViewData["Title"] = "Listas de Pessoas"; 
+}
+<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+
+<!-- Tabela estilizada usando Bootstrap -->
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Morada</th>
+            <th>Numero de Telemóvel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Pessoa pessoa in Model){
+
+            <tr>
+                <td>@pessoa.Nome</td> 
+                <td>@pessoa.Morada</td>  <!-- Exibindo a morada da pessoa -->
+                <td>@pessoa.NumeroTelemovel</td>  <!-- Exibindo o número de telemóvel -->
+            </tr>
+            
+        }
+    </tbody>
+</table>
