@@ -18,7 +18,6 @@ namespace MyWebApi.Controllers
             return Content("Bem-vindo à Pessoa!");
         }
 
-        // Rota personalizada: GET /Home/teste
         [HttpGet("Pessoa/teste")]
         public IActionResult Teste()
         {
@@ -115,7 +114,7 @@ namespace MyWebApi.Controllers
 
             Pessoa pessoa1 = new Pessoa(nome, morada, NumeroTelemovel);
             ListaPessoas.Lista_Pessoas.Add(pessoa1);
-            return Ok("Pessoa Adicionada");
+            return View("~/Views/Pessoa/TabelaPessoa.cshtml",ListaPessoas.Lista_Pessoas);
         }
 
         [HttpPost("Pessoa/AdicionarAnimal")]

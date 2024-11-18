@@ -3,7 +3,14 @@
 @{
     ViewData["Title"] = "Listas de Pessoas"; 
 }
-<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+
+<div> 
+    <h2 class="mt-5">@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5"><button class="btn btn-outline-success "data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Criar Pessoa </button></div>
+</div>
+
+
+
 
 <!-- Tabela estilizada usando Bootstrap -->
 <table class="table table-striped table-bordered table-hover">
@@ -21,8 +28,43 @@
                 <td>@pessoa.Nome</td> 
                 <td>@pessoa.Morada</td>  <!-- Exibindo a morada da pessoa -->
                 <td>@pessoa.NumeroTelemovel</td>  <!-- Exibindo o número de telemóvel -->
+                <td>
+                <button class="btn btn-info" onclick="window.location='@Url.Action("ProcurarPessoa", "Pessoa", new { NumeroTelemovel = pessoa.NumeroTelemovel })'">Editar</button>
+                <button class="btn btn-outline-success "data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Apagar </button>
+                <button class="btn btn-outline-success "data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Editar </button>
+                </td>
             </tr>
             
         }
     </tbody>
 </table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Criar Pessoa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form action="/Pessoa/AdicionarPessoa" method="post">
+     @using (Html.BeginForm("Pessoa", "ProcurarPessoa", FormMethod.Post))
+                {
+                    @Html.HiddenFor(m => .NumeroTelemovel)
+                    <!-- Outros campos de entrada aqui, como nome, etc. -->
+                    <div class="form-group">
+                        <label for="Nome">Nome</label>
+                        <input type="text" class="form-control" id="Nome" name="Nome" value="@pessoa.Nome" />
+                    </div>
+                    <button type="submit" class="btn btn-info">Salvar</button>
+                }
+</form>
+
+      </div> 
+      
+    </div>
+  </div>
+</div>

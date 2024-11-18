@@ -40,9 +40,21 @@ namespace MyWebApi.Controllers
             }
         }
 
-        //Atualizar Dados animal
+          [HttpGet("Animal/ObterInfoAnimal")]
 
-        [HttpPost("Animal/AtualizarNomeAnimal")]
+           public IActionResult ObterInfoAnimal(int NumeroChip, string NomeAnimal)
+        {
+            foreach (Animal animal in ListaPessoas.ListaAnimais)
+            {
+                if (animal.NumeroChip == NumeroChip)
+                {
+                    animal.NomeAnimal = NomeAnimal;
+                    return Ok("Foi atualizado com sucesso");
+                }
+            }
+
+            return NotFound("Não foi possivel atualizar o Nome Animal");
+        }
         public IActionResult AtualizarNomeAnimal(int NumeroChip, string NomeAnimal)
         {
             foreach (Animal animal in ListaPessoas.ListaAnimais)
@@ -56,7 +68,7 @@ namespace MyWebApi.Controllers
 
             return NotFound("Não foi possivel atualizar o Nome Animal");
         }
-
+        
         [HttpPost("Animal/AtualizarNomeRaca")]
         public IActionResult AtualizarNomeRaca(
             int NumeroChip,
@@ -96,6 +108,8 @@ namespace MyWebApi.Controllers
                         if (pessoa.NumeroTelemovel == numeroTelemovel)
                         {
                             animal1.Responsavel=pessoa;
+
+                           
                             return Ok("Foi atualizado com sucesso");
                         }
                     }
