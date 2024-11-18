@@ -50,7 +50,7 @@ namespace MyWebApi.Controllers
         [HttpGet("Listas/ObterRacas")]
         public IActionResult ObterRacas()
         {
-          return View("~/Views/Racas/TabelaRacas.cshtml",ListaPessoas.racas);
+          return View("~/Views/Raca/TabelaRacas.cshtml",ListaPessoas.racas);
         }
 
         [HttpGet("Listas/ObterTodosVeterinarios")]
