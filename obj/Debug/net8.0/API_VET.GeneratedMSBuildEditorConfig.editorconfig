@@ -9,55 +9,55 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = API_VET
 build_property.RootNamespace = API_VET
-build_property.ProjectDir = C:\Users\Diogo Araujo\Desktop\API_VET1\
+build_property.ProjectDir = C:\Users\diogo araujo\Desktop\API_VET1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Diogo Araujo\Desktop\API_VET1
+build_property.MSBuildProjectDirectory = C:\Users\diogo araujo\Desktop\API_VET1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Animal/TabelaAnimal.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Animal/TabelaAnimal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXFRhYmVsYUFuaW1hbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Home/Index.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Home/Privacy.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Pessoa/TabelaPessoa.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Pessoa/TabelaPessoa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzc29hXFRhYmVsYVBlc3NvYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Raca/TabelaRacas.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Raca/TabelaRacas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFjYVxUYWJlbGFSYWNhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Shared/Error.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Veterinario/TabelaVeterinario.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Veterinario/TabelaVeterinario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9cVGFiZWxhVmV0ZXJpbmFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/_ViewImports.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/_ViewStart.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Diogo Araujo/Desktop/API_VET1/Views/Shared/_Layout.cshtml]
+[C:/Users/diogo araujo/Desktop/API_VET1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ht6fmmcjsc

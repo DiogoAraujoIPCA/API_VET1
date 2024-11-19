@@ -15,7 +15,8 @@ namespace MyWebApi.Controllers
                     Veterinario Vet1 = new Veterinario(id,pessoa1);
 
                     ListaPessoas.ListasVeterinario.Add(Vet1);
-                     return Ok("Veterinario  Adicionada com sucesso");
+                    
+                     return View("~/Views/Veterinario/TabelaVeterinario.cshtml",ListaPessoas.ListasVeterinario);
                 }
             }
              return NotFound("Não foi possivel Criar Pessoa");

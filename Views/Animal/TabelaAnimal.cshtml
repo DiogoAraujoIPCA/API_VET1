@@ -3,7 +3,13 @@
 @{
     ViewData["Title"] = "Listas de Animais"; 
 }
-<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+
+<div>
+    <h2 class="mt-5">@ViewData["Title"]</h2> <!-- Exibindo o título -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5"><button class="btn btn-outline-success "
+            data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Criar Animal </button></div>
+</div>
+
 
 <!-- Tabela estilizada usando Bootstrap -->
 <table class="table table-striped table-bordered table-hover">
@@ -23,8 +29,150 @@
                 <td>@animal.NomeAnimal</td> 
                 <td>@animal.NomeRaca.Nome</td>  <!-- Exibindo a morada da pessoa -->
                 <td>@animal.Responsavel.Nome</td>  <!-- Exibindo o número de telemóvel -->
+                 <td>
+                      <!-- Botão de Apagar -->
+                    <button class="btn btn-outline-danger btn-apagar" 
+                            data-id="@animal.NumeroChip"
+                            data-nome="@@animal.NomeAnimal"
+                            data-morada="@animal.NomeRaca.Nome"
+                            data-telemovel="@animal.Responsavel.Nome"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalApagar-@animal.NumeroChip">
+                        Apagar
+                    </button>
+
+                     <button class="btn btn-outline-danger btn-apagar" 
+                            data-id="@animal.NumeroChip"
+                            data-nome="@@animal.NomeAnimal"
+                            data-morada="@animal.NomeRaca.Nome"
+                            data-telemovel="@animal.Responsavel.Nome"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditar-@animal.NumeroChip">
+                        Apagar
+                    </button>
+
+                </td>
             </tr>
-            
+              <!-- Modal de Edição - Dentro do foreach -->
+            <div class="modal fade" id="modalEditar-@animal.NumeroChip" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalEditarLabel">Editar Animal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form  method="post" asp-controller="Pessoa" asp-action="AtualizarTodasInformacoes">
+
+                             
+
+                            <div class="modal-body">
+
+                                 <!-- Numero Chip -->
+                                <div class="mb-3">
+                                    <label for="editar-NumeroChip-@animal.NumeroChip" class="form-label">Numero Chip</label>
+                                    <input type="text" class="form-control" id="editar-morada-@animal.NumeroChip" name="NumeroChip" value="@animal.NumeroChip" required>
+                                </div>
+
+                                <!-- Nome -->
+                                <div class="mb-3">
+                                    <label for="editar-nome-@animal.NomeAnimal" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="editar-nome-@animal.NomeAnimal" name="Nome" value="@animal.NomeAnimal" required>
+                                </div>
+
+                              
+
+                                <!-- Responsavel -->
+                                <div class="mb-3">
+                                    <label for="editar-Responsavel-@animal.Responsavel.NumeroTelemovel" class="form-label">Número de Telemóvel</label>
+                                    <input type="tel" class="form-control" id="editar-Responsavel-@animal.Responsavel.NumeroTelemovel" name="Nome Responsavel" value="@animal.Responsavel.NumeroTelemovel" required>
+                                </div>
+
+                                 <!-- Responsavel -->
+                                <div class="mb-3">
+                                    <label for="editar-raca-@animal.NomeRaca.Nome" class="form-label">Raca</label>
+                                    <input type="tel" class="form-control" id="editar-raca-@animal.NomeRaca.Nome" name="Nome Responsavel" value="@animal.NomeRaca.Nome" required>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Apagar - Dentro do foreach -->
+            <div class="modal fade" id="modalApagar-@animal.NumeroChip" tabindex="-1" aria-labelledby="modalApagarLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalApagarLabel">Apagar animal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form method="post" asp-controller="Pessoa" asp-action="ApagarPessoa">
+                            <div class="modal-body">
+                                <p>Tem certeza que deseja apagar a pessoa <strong>@animal.NomeAnimal</strong>?</p>
+                                <input type="hidden" name="NumeroTelemovel" value="@animal.NumeroChip" />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-danger">Apagar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         }
     </tbody>
 </table>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post"  asp-controller="Animal" asp-action="CriarAnimal" >   
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Pessoa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulário de Adição de Animal -->
+                    <!-- Numero Chip -->
+                    <div class="mb-3">
+                        <label for="NumeroChip" class="form-label">NumeroChip</label>
+                        <input type="text" class="form-control" id="NumeroChip" name="NumeroChip" required>
+                    </div>
+
+                    <!-- Nome -->
+                    <div class="mb-3">
+                        <label for="NomeAnimal" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="NomeAnimal" name="NomeAnimal" required>
+                    </div>
+
+                    <!-- Nome da Raça -->
+                    <div class="mb-3">
+                        <label for="NumeroTelemovel" class="form-label">Numero Animal</label>
+                        <input type="text" class="form-control" id="NumeroTelemovel" name="NumeroTelemovel" required>
+                    </div>
+
+                      <!-- Numero Pessoa Responsavel -->
+                    <div class="mb-3">
+                        <label for="NumeroTelemovelInput" class="form-label">Numero Responsavel</label>
+                        <input type="tel" class="form-control" id="NumeroTelemovel" name="NumeroTelemovel" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-info">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,9 +1,13 @@
 ﻿@model List<Raca>
 
 @{
-    ViewData["Title"] = "Listas de racas"; 
+    ViewData["Title"] = "Listas de racas";
 }
-<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+<div>
+    <h2 class="mt-5">@ViewData["Title"]</h2> <!-- Exibindo o título -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5"><button class="btn btn-outline-success "
+            data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Criar Raca </button></div>
+</div>
 
 <!-- Tabela estilizada usando Bootstrap -->
 <table class="table table-striped table-bordered table-hover">
@@ -11,18 +15,134 @@
         <tr>
             <th>Nome</th>
             <th>Informacoes</th>
-            
+
         </tr>
     </thead>
     <tbody>
-        @foreach (Raca pessoa in Model){
-
+        @foreach (Raca raca in Model)
+        {
             <tr>
-                <td>@pessoa.Nome</td> 
-                <td>@pessoa.Informacoes</td>  <!-- Exibindo a morada da pessoa -->
-            
+                <td>@raca.Nome</td>
+                <td>@raca.Informacoes</td>
+                <td>
+                    <!-- Botão de Apagar -->
+                    <button class="btn btn-outline-danger btn-apagar" data-Nome="@raca.Nome"
+                        data-informacoes="@raca.Informacoes" data-bs-toggle="modal"
+                        data-bs-target="#modalApagar-@raca.Nome">
+                        Apagar
+                    </button>
+
+                    <!-- Botão de Editar -->
+                    <button class="btn btn-outline-success btn-editar" data-Nome="@raca.Nome"
+                        data-informacoes="@raca.Informacoes" data-bs-toggle="modal"
+                        data-bs-target="#modalEditar-@raca.Nome">
+                        Editar
+                    </button>
+                </td>
             </tr>
-            
+
+            <!-- Modal de Edição - Dentro do foreach -->
+            <div class="modal fade" id="modalEditar-@raca.Nome" tabindex="-1" aria-labelledby="modalEditarLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalEditarLabel">Editar Raca</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form method="post" asp-controller="Raca" asp-action="AtualizarTodasInformacoesRaca">
+                            <div class="modal-body">
+                                <!-- Nome -->
+                                <div class="mb-3">
+                                    <label for="editar-nome-@raca.Nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="editar-nome-@raca.Nome" name="Nome"
+                                        value="@raca.Nome" required disabled>
+                                </div>
+
+                                <!-- Informacoes -->
+                                <div class="mb-3">
+                                    <label for="editar-morada-@raca.Informacoes" class="form-label">Informacoes</label>
+                                    <input type="text" class="form-control" id="editar-morada-@raca.Informacoes"
+                                        name="informacoes" value="@raca.Informacoes" required>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Apagar - Dentro do foreach -->
+            <div class="modal fade" id="modalApagar-@raca.Nome" tabindex="-1" aria-labelledby="modalApagarLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalApagarLabel">Apagar Raca</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form method="post" asp-controller="Raca" asp-action="ApagarRaca">
+                            <div class="modal-body">
+                                <p>Tem certeza que deseja apagar a raca <strong>@raca.Nome</strong>?</p>
+                                <input type="hidden" name="nome" value="@raca.Nome" />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-danger">Apagar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         }
     </tbody>
 </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="Criar Raça">Criar raca</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+                <form method="post" asp-controller="Raca" asp-action="CriarRaca">
+
+                     <div class="modal-body">
+                   
+
+                    <!-- Nome -->
+                    <div class="mb-3">
+                        <label for="NomeRaca" class="form-label">Nome Raca</label>
+                        <input type="text" class="form-control" id="nomeInput" name="Nome" required>
+                    </div>
+
+                    <!-- Informacoes -->
+                    <div class="mb-3">
+                        <label for="InformacoesRaca" class="form-label">Informacoes</label>
+                        <input type="text" class="form-control" id="Informacoes" name="Informacoes" required>
+                    </div>
+                       </div>
+                     <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Criar Raca</button>
+                     </div>
+                    
+
+
+                </form>
+                   
+                
+         
+
+        </div>
+    </div>
+</div>

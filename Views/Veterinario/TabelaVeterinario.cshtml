@@ -3,7 +3,11 @@
 @{
     ViewData["Title"] = "Listas de Veterinarios"; 
 }
-<h2>@ViewData["Title"]</h2>  <!-- Exibindo o título -->
+<div>
+    <h2 class="mt-5">@ViewData["Title"]</h2> <!-- Exibindo o título -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5"><button class="btn btn-outline-success "
+            data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Criar Veterinario </button></div>
+</div>
 
 <!-- Tabela estilizada usando Bootstrap -->
 <table class="table table-striped table-bordered table-hover">
@@ -12,6 +16,7 @@
             <th>ID Veterinario</th>
             <th>Nome</th>
             <th>Numero de Telemóvel</th>
+             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -21,8 +26,51 @@
                 <td>@pessoa.ID_Veterinario</td> 
                 <td>@pessoa._Pessoa.Nome</td>  <!-- Exibindo a morada da pessoa -->
                 <td>@pessoa._Pessoa.NumeroTelemovel</td>  <!-- Exibindo o número de telemóvel -->
+                <td>
+                    <!-- Botão de Apagar -->
+                    <button class="btn btn-outline-danger btn-apagar" 
+                           >
+                        Apagar
+                    </button>
+
+                    <!-- Botão de Editar -->
+                    <button class="btn btn-outline-success btn-editar">
+                           
+                        Editar
+                    </button>
+                </td>
+                
             </tr>
             
         }
     </tbody>
 </table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/Veterinario/CriarVeterinario" method="post">   
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Veterinario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Nome -->
+                    <div class="mb-3">
+                        <label for="nomeInput" class="form-label">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" required>
+                    </div>
+                    <!-- Morada -->
+                    <div class="mb-3">
+                        <label for="NumeroTelemovel" class="form-label">NumeroTelemovel</label>
+                        <input type="text" class="form-control" id="NumeroTelemovel" name="NumeroTelemovel" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

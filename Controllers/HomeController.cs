@@ -11,7 +11,7 @@ namespace MyWebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return Content("Bem-vindo à Home!");
+            return View("~/Views/Home/Index.cshtml");
         }
 
 

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Diogo Araujo\\Desktop\\API_VET1\\API_VET.csproj": {}
+    "C:\\Users\\diogo araujo\\Desktop\\API_VET1\\API_VET.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Diogo Araujo\\Desktop\\API_VET1\\API_VET.csproj": {
+    "C:\\Users\\diogo araujo\\Desktop\\API_VET1\\API_VET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Diogo Araujo\\Desktop\\API_VET1\\API_VET.csproj",
+        "projectUniqueName": "C:\\Users\\diogo araujo\\Desktop\\API_VET1\\API_VET.csproj",
         "projectName": "API_VET",
-        "projectPath": "C:\\Users\\Diogo Araujo\\Desktop\\API_VET1\\API_VET.csproj",
-        "packagesPath": "C:\\Users\\Diogo Araujo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Diogo Araujo\\Desktop\\API_VET1\\obj\\",
+        "projectPath": "C:\\Users\\diogo araujo\\Desktop\\API_VET1\\API_VET.csproj",
+        "packagesPath": "C:\\Users\\diogo araujo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\diogo araujo\\Desktop\\API_VET1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Diogo Araujo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\diogo araujo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

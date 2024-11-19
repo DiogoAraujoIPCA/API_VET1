@@ -1,4 +1,7 @@
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace MyWebApi.Controllers
 {
@@ -6,9 +9,11 @@ namespace MyWebApi.Controllers
     {
 
         //Criar Raca
-        [HttpPost("Home/Raca/CriarRaca")]
+        [HttpPost("Raca/CriarRaca")]
          public IActionResult CriarRaca(string nome, string Informacoes){
 
+
+          
             foreach (Raca raca in ListaPessoas.racas)
             {
 
@@ -22,22 +27,27 @@ namespace MyWebApi.Controllers
             Raca NovaRaca = new Raca(nome,Informacoes);
             ListaPessoas.racas.Add(NovaRaca);
 
+            string teste = JsonConvert.SerializeObject(NovaRaca);
+            Console.WriteLine(teste);
 
 
-            return Ok("Raca Adicionada com sucesso");
+
+           return View("~/Views/Raca/TabelaRacas.cshtml",ListaPessoas.racas);
          }
 
         //Remover Raça
-          [HttpDelete("Raca/ApagarRaca")]
+          [HttpPost("Raca/ApagarRaca")]
          public IActionResult ApagarRaca(string nome, string Informacoes){
 
+
+            Console.Write(nome);
             foreach (Raca raca in ListaPessoas.racas)
             {
 
                 if (raca.Nome == nome)
                 {
                        ListaPessoas.racas.Remove(raca);
-                       return Ok("Raca removida com sucesso");
+                             return View("~/Views/Raca/TabelaRacas.cshtml",ListaPessoas.racas);
 
                 }
             }
@@ -78,6 +88,27 @@ namespace MyWebApi.Controllers
                 {
                        raca.Nome=novonome;
                        return Ok("Nome raca atualizada com sucesso");
+
+                }
+            }
+              return NotFound("Não foi possivel atualizar raça ");
+         
+         }
+
+          //Atualizar Informacoes Raça
+        [HttpPost("Raca/AtualizarTodasInformacoesRaca")]
+         public IActionResult AtualizarTodasInformacoesRaca(string nome ,string informacoes){
+
+            foreach (Raca raca in ListaPessoas.racas)
+            {
+
+                if (raca.Nome == nome)
+                {
+                       raca.Nome=nome;
+                       raca.Informacoes=informacoes;
+                         return View("~/Views/Raca/TabelaRacas.cshtml",ListaPessoas.racas);
+
+                     
 
                 }
             }

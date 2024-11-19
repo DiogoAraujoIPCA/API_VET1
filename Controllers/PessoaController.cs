@@ -70,7 +70,7 @@ namespace MyWebApi.Controllers
             }
         }
 
-        [HttpPut("Pessoa/AdicionarPessoa/AtualizarNumeroTelemovel")]
+        [HttpPost("Pessoa/AdicionarPessoa/AtualizarNumeroTelemovel")]
         public IActionResult AtualizarNumeroTelemovel(
             int numerotelemovelNovo,
             int numeroTelemovelAntigo
@@ -94,6 +94,38 @@ namespace MyWebApi.Controllers
                 return NotFound("Não foi possivel atualizar  ");
             }
         }
+
+         [HttpPost("Pessoa/AdicionarPessoa/AtualizarTodasInformacoes")]
+        public IActionResult AtualizarTodasInformacoes( int NumeroTelemovel , string Nome, string Morada)
+        {
+            bool estado = false;
+
+            Console.WriteLine(NumeroTelemovel);
+            Console.WriteLine(Nome);
+              Console.WriteLine(Morada);
+
+            foreach (var pessoa in ListaPessoas.Lista_Pessoas)
+            {
+                if (pessoa.NumeroTelemovel == NumeroTelemovel)
+                {
+                    estado = true;
+                    pessoa.NumeroTelemovel = NumeroTelemovel;
+                    pessoa.Nome = Nome;
+                    pessoa.Morada=Morada;
+                }
+            }
+            if (estado)
+            {
+                 Console.Write("Atualizado com sucesso ");
+                 return View("~/Views/Pessoa/TabelaPessoa.cshtml",ListaPessoas.Lista_Pessoas);
+            }
+            else
+            {
+                return NotFound("Não foi possivel atualizar  ");
+            }
+        }
+
+
 
         #endregion
 
@@ -220,15 +252,18 @@ namespace MyWebApi.Controllers
 
         #region Apagar
 
-        [HttpDelete("Pessoa/ApagarPessoa")]
+        [HttpPost("Pessoa/ApagarPessoa")]
         public IActionResult ApagarPessoa(int NumeroTelemovel)
         {
+
+            Console.Write(NumeroTelemovel);
             foreach (var pessoa in ListaPessoas.Lista_Pessoas)
             {
                 if (pessoa.NumeroTelemovel == NumeroTelemovel)
                 {
                     ListaPessoas.Lista_Pessoas.Remove(pessoa);
-                    return Ok("Pessoa Removida com sucesso");
+                      return View("~/Views/Pessoa/TabelaPessoa.cshtml",ListaPessoas.Lista_Pessoas);
+             
                 }
             }
               return NotFound("Não foi possivel remover a pessoa");
