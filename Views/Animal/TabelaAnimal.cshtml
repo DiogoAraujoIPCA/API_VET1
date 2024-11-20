@@ -133,43 +133,40 @@
 </table>
 
 
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form method="post"  asp-controller="Animal" asp-action="CriarAnimal" >   
+        <form method="post" asp-controller="Animal" asp-action="CriarAnimal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Pessoa</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Animal</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Formulário de Adição de Animal -->
                     <!-- Numero Chip -->
                     <div class="mb-3">
-                        <label for="NumeroChip" class="form-label">NumeroChip</label>
+                        <label for="NumeroChip" class="form-label">Número do Chip</label>
                         <input type="text" class="form-control" id="NumeroChip" name="NumeroChip" required>
                     </div>
 
-                    <!-- Nome -->
+                    <!-- Nome do Animal -->
                     <div class="mb-3">
-                        <label for="NomeAnimal" class="form-label">Nome</label>
+                        <label for="NomeAnimal" class="form-label">Nome do Animal</label>
                         <input type="text" class="form-control" id="NomeAnimal" name="NomeAnimal" required>
                     </div>
 
                     <!-- Nome da Raça -->
                     <div class="mb-3">
-                        <label for="NumeroTelemovel" class="form-label">Numero Animal</label>
-                        <input type="text" class="form-control" id="NumeroTelemovel" name="NumeroTelemovel" required>
+                        <label for="nomeraca" class="form-label">Nome da Raça</label>
+                        <input type="text" class="form-control" id="nomeraca" name="nomeraca" required>
                     </div>
 
-                      <!-- Numero Pessoa Responsavel -->
+                    <!-- Número do Telemóvel do Responsável -->
                     <div class="mb-3">
-                        <label for="NumeroTelemovelInput" class="form-label">Numero Responsavel</label>
+                        <label for="NumeroTelemovel" class="form-label">Número do Telemóvel do Responsável</label>
                         <input type="tel" class="form-control" id="NumeroTelemovel" name="NumeroTelemovel" required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-info">Salvar</button>
                 </div>
             </div>

@@ -35,15 +35,13 @@ namespace MyWebApi.Controllers
                     Veterinario Vet1 = new Veterinario(id,pessoa1);
 
                     ListaPessoas.ListasVeterinario.Remove(Vet1);
-                     return Ok("Veterinario Removido com sucesso");
+
+                    return Ok("Veterinario Removido com sucesso");
                 }
             }
-             return NotFound("Não foi possivel Remover Veterinario");
-
-           
+             return NotFound("Não foi possivel Remover Veterinario");  
         }
-
-
+        
            [HttpPost("Veterinario/AtualizarVeterinario")]
         public IActionResult AtualizarVeterinario(int id,int NumeroTelemovel)
         {
@@ -64,7 +62,7 @@ namespace MyWebApi.Controllers
         }
 
 
-            [HttpPost("Veterinario/ObterDadosVeterinario")]
+        [HttpPost("Veterinario/ObterDadosVeterinario")]
         public IActionResult ObterDadosVeterinario(int id)
         {
 
@@ -72,9 +70,7 @@ namespace MyWebApi.Controllers
             {
                 if (Vet1.ID_Veterinario == id)
                 {
-                  
-
-                  
+        
                     return Ok(Vet1);
                 }
             }
